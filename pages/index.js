@@ -56,9 +56,11 @@ const HomepageHeading = ({ mobile }) => (
       }}
     />
 
-    <Button primary size="huge">
-      Download now
-    </Button>
+    <a href="https://gum.co/alarmaapp" target="_blank">
+      <Button primary size="huge">
+        Buy now for <strike>9.95</strike> 4.95 USD
+      </Button>
+    </a>
   </Container>
 );
 
