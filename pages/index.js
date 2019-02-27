@@ -70,87 +70,6 @@ HomepageHeading.propTypes = {
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
  */
-class DesktopContainer extends Component {
-  state = {};
-
-  hideFixedMenu = () => this.setState({ fixed: false });
-  showFixedMenu = () => this.setState({ fixed: true });
-
-  render() {
-    const { children } = this.props;
-    const { fixed } = this.state;
-
-    return (
-      <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
-        <Visibility
-          once={false}
-          onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}
-        >
-          <Segment
-            inverted
-            textAlign="center"
-            style={{ minHeight: 700, padding: "1em 0em" }}
-            vertical
-          >
-            <Menu
-              fixed={fixed ? "top" : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="massive"
-            >
-              <Container>
-                <Menu.Item as="a" header>
-                  <Image
-                    size="mini"
-                    src="/static/icons/siren128.png"
-                    style={{ marginRight: "1.5em" }}
-                  />
-                  Alarma App
-                </Menu.Item>
-              </Container>
-            </Menu>
-            <HomepageHeading />
-          </Segment>
-        </Visibility>
-
-        {children}
-      </Responsive>
-    );
-  }
-}
-
-DesktopContainer.propTypes = {
-  children: PropTypes.node
-};
-
-class MobileContainer extends Component {
-  state = {};
-
-  render() {
-    const { children } = this.props;
-
-    return (
-      <Responsive getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth}>
-        <Menu.Item header>
-          <Image
-            size="mini"
-            src="/static/icons/siren128.png"
-            style={{ marginRight: "1.5em" }}
-          />
-          <Header as="h2">Alarma App</Header>
-        </Menu.Item>
-        <HomepageHeading />
-        {children}
-      </Responsive>
-    );
-  }
-}
-
-MobileContainer.propTypes = {
-  children: PropTypes.node
-};
 
 const ResponsiveContainer = ({ children }) => {
   return (
@@ -169,9 +88,9 @@ const ResponsiveContainer = ({ children }) => {
           }}
           vertical
         >
-          <Menu inverted={true} pointing={true} secondary={true} size="massive">
+          <Menu inverted={true} secondary={true} size="massive">
             <Container>
-              <Menu.Item as="a" header>
+              <Menu.Item header>
                 <Image
                   size="mini"
                   src="/static/icons/siren128.png"
