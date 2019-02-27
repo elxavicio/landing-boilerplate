@@ -98,27 +98,16 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size="large"
+              size="massive"
             >
               <Container>
-                <Menu.Item as="a" active>
-                  Home
-                </Menu.Item>
-                <Menu.Item as="a">Work</Menu.Item>
-                <Menu.Item as="a">Company</Menu.Item>
-                <Menu.Item as="a">Careers</Menu.Item>
-                <Menu.Item position="right">
-                  <Button as="a" inverted={!fixed}>
-                    Log in
-                  </Button>
-                  <Button
-                    as="a"
-                    inverted={!fixed}
-                    primary={fixed}
-                    style={{ marginLeft: "0.5em" }}
-                  >
-                    Sign Up
-                  </Button>
+                <Menu.Item as="a" header>
+                  <Image
+                    size="mini"
+                    src="/static/icons/siren128.png"
+                    style={{ marginRight: "1.5em" }}
+                  />
+                  Alarma App
                 </Menu.Item>
               </Container>
             </Menu>
@@ -139,65 +128,21 @@ DesktopContainer.propTypes = {
 class MobileContainer extends Component {
   state = {};
 
-  handleSidebarHide = () => this.setState({ sidebarOpened: false });
-
-  handleToggle = () => this.setState({ sidebarOpened: true });
-
   render() {
     const { children } = this.props;
-    const { sidebarOpened } = this.state;
 
     return (
-      <Responsive
-        as={Sidebar.Pushable}
-        getWidth={getWidth}
-        maxWidth={Responsive.onlyMobile.maxWidth}
-      >
-        <Sidebar
-          as={Menu}
-          animation="push"
-          inverted
-          onHide={this.handleSidebarHide}
-          vertical
-          visible={sidebarOpened}
-        >
-          <Menu.Item as="a" active>
-            Home
-          </Menu.Item>
-          <Menu.Item as="a">Work</Menu.Item>
-          <Menu.Item as="a">Company</Menu.Item>
-          <Menu.Item as="a">Careers</Menu.Item>
-          <Menu.Item as="a">Log in</Menu.Item>
-          <Menu.Item as="a">Sign Up</Menu.Item>
-        </Sidebar>
-
-        <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            inverted
-            textAlign="center"
-            style={{ minHeight: 350, padding: "1em 0em" }}
-            vertical
-          >
-            <Container>
-              <Menu inverted pointing secondary size="large">
-                <Menu.Item onClick={this.handleToggle}>
-                  <Icon name="sidebar" />
-                </Menu.Item>
-                <Menu.Item position="right">
-                  <Button as="a" inverted>
-                    Log in
-                  </Button>
-                  <Button as="a" inverted style={{ marginLeft: "0.5em" }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
-              </Menu>
-            </Container>
-            <HomepageHeading mobile />
-          </Segment>
-
-          {children}
-        </Sidebar.Pusher>
+      <Responsive getWidth={getWidth} maxWidth={Responsive.onlyMobile.maxWidth}>
+        <Menu.Item header>
+          <Image
+            size="mini"
+            src="/static/icons/siren128.png"
+            style={{ marginRight: "1.5em" }}
+          />
+          <Header as="h2">Alarma App</Header>
+        </Menu.Item>
+        <HomepageHeading />
+        {children}
       </Responsive>
     );
   }
@@ -207,12 +152,42 @@ MobileContainer.propTypes = {
   children: PropTypes.node
 };
 
-const ResponsiveContainer = ({ children }) => (
-  <div>
-    <DesktopContainer>{children}</DesktopContainer>
-    <MobileContainer>{children}</MobileContainer>
-  </div>
-);
+const ResponsiveContainer = ({ children }) => {
+  return (
+    <div>
+      <Visibility once={false}>
+        <Segment
+          textAlign="center"
+          style={{
+            minHeight: 700,
+            padding: "1em 0em",
+            backgroundImage: `url(
+              "/static/images/background3.jpeg"
+            )`,
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed"
+          }}
+          vertical
+        >
+          <Menu inverted={true} pointing={true} secondary={true} size="massive">
+            <Container>
+              <Menu.Item as="a" header>
+                <Image
+                  size="mini"
+                  src="/static/icons/siren128.png"
+                  style={{ marginRight: "1.5em" }}
+                />
+                Alarma App
+              </Menu.Item>
+            </Container>
+          </Menu>
+          <HomepageHeading />
+        </Segment>
+        {children}
+      </Visibility>
+    </div>
+  );
+};
 
 ResponsiveContainer.propTypes = {
   children: PropTypes.node
@@ -221,7 +196,7 @@ ResponsiveContainer.propTypes = {
 const HomepageLayout = () => (
   <div>
     <Head>
-      <title>Alarma App - Antitheft app for laptops</title>
+      <title>Alarma App - The antitheft alarm app for your laptop</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <ResponsiveContainer>
