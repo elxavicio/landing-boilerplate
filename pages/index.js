@@ -240,12 +240,18 @@ class HomepageLayout extends React.Component {
           <Segment
             inverted
             vertical
-            style={{ padding: "5em 0em" }}
+            style={{ padding: "2em 0em" }}
             textAlign="center"
           >
             <p>
               Made with love by{" "}
               <a href="https://javiercarceller.com"> Javier Carceller </a>
+            </p>
+            <p>
+              Contact me at{" "}
+              <a href="mailto:helloalarmaapp@gmail.com" target="_top">
+                helloalarmaapp@gmail.com
+              </a>
             </p>
 
             <p>
@@ -263,6 +269,11 @@ class HomepageLayout extends React.Component {
                 size="big"
                 name="twitter"
                 link="https://twitter.com/javiercarceller"
+              />
+              <Icon
+                size="big"
+                name="coffee"
+                link="https://buymeacoff.ee/javiercarceller"
               />
             </p>
           </Segment>
