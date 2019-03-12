@@ -19,6 +19,8 @@ import {
 } from "semantic-ui-react";
 import Head from "next/head";
 
+import ReactGA from "react-ga";
+
 // Heads up!
 // We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
 // For more advanced usage please check Responsive docs under the "Usage" section.
@@ -114,134 +116,156 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node
 };
 
-const HomepageLayout = () => (
-  <div>
-    <Head>
-      <title>Alarma App - The antitheft alarm app for your laptop</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <ResponsiveContainer>
-      <Segment style={{ padding: "4em 0em" }} vertical>
-        <Grid container stackable verticalAlign="middle">
-          <Grid.Row>
-            <Grid.Column textAlign="center">
-              <Step.Group size="huge" stackable="mobile" widths={6}>
-                <Step>
-                  <Icon name="check" />
-                  <Step.Content>
-                    <Step.Title
-                      style={{ fontSize: "1em", marginBottom: "1em" }}
-                    >
-                      Enable the app
-                    </Step.Title>
-                    <Step.Description
-                      style={{ fontSize: "0.8em", marginBottom: "1em" }}
-                    >
-                      Activate the app when you have to leave your laptop in a
-                      public place (like going to the toilet when working in a
-                      coffee shop).
-                    </Step.Description>
-                  </Step.Content>
-                </Step>
-                <Step>
-                  <Icon name="volume up" />
-                  <Step.Content>
-                    <Step.Title
-                      style={{ fontSize: "1em", marginBottom: "1em" }}
-                    >
-                      Alarma Is On
-                    </Step.Title>
-                    <Step.Description
-                      style={{ fontSize: "0.8em", marginBottom: "1em" }}
-                    >
-                      If your laptop gets unplugged or the lid closes your
-                      laptop will set up its volume to 200% and the alarm will
-                      play.
-                    </Step.Description>
-                  </Step.Content>
-                </Step>
-                <Step>
-                  <Icon name="coffee" />
-                  <Step.Content>
-                    <Step.Title
-                      style={{ fontSize: "1em", marginBottom: "1em" }}
-                    >
-                      Do what you have to do
-                    </Step.Title>
-                    <Step.Description
-                      style={{ fontSize: "0.8em", marginBottom: "1em" }}
-                    >
-                      Now you can safely go and order that Decaf, Soy Latte With
-                      An Extra Shot And Cream or go and do your business.
-                    </Step.Description>
-                  </Step.Content>
-                </Step>
-              </Step.Group>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-
-      <Segment style={{ padding: "0em" }} vertical>
-        <Grid celled="internally" columns="equal" stackable>
-          <Grid.Row textAlign="center">
-            <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-              <Header as="h3" style={{ fontSize: "2em" }}>
-                "What a Company"
-              </Header>
-              <p style={{ fontSize: "1.33em" }}>
-                That is what they all say about us
-              </p>
-            </Grid.Column>
-            <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-              <Header as="h3" style={{ fontSize: "2em" }}>
-                "I shouldn't have gone with their competitor."
-              </Header>
-              <p style={{ fontSize: "1.33em" }}>
-                <Image avatar src="/images/avatar/large/nan.jpg" />
-                <b>Nan</b> Chief Fun Officer Acme Toys
-              </p>
-            </Grid.Column>
-            <Grid.Column style={{ paddingBottom: "5em", paddingTop: "5em" }}>
-              <Header as="h3" style={{ fontSize: "2em" }}>
-                "I shouldn't have gone with their competitor."
-              </Header>
-              <p style={{ fontSize: "1.33em" }}>
-                <Image avatar src="/images/avatar/large/nan.jpg" />
-                <b>Nan</b> Chief Fun Officer Acme Toys
-              </p>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-
-      <Segment
-        inverted
-        vertical
-        style={{ padding: "5em 0em" }}
-        textAlign="center"
-      >
-        <p>
-          Made with love by{" "}
-          <a href="https://javiercarceller.com"> Javier Carceller </a>
-        </p>
-
-        <p>
-          <Icon size="big" name="github" link="https://github.com/elxavicio" />{" "}
-          <Icon
-            size="big"
-            name="linkedin"
-            link="https://www.linkedin.com/in/javiercarceller/"
+class HomepageLayout extends React.Component {
+  componentDidMount() {
+    ReactGA.initialize("UA-135975398-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
+  render() {
+    return (
+      <div>
+        <Head>
+          <title>Alarma App - The antitheft alarm app for your laptop</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
           />
-          <Icon
-            size="big"
-            name="twitter"
-            link="https://twitter.com/javiercarceller"
-          />
-        </p>
-      </Segment>
-    </ResponsiveContainer>
-  </div>
-);
+        </Head>
+        <ResponsiveContainer>
+          <Segment style={{ padding: "4em 0em" }} vertical>
+            <Grid container stackable verticalAlign="middle">
+              <Grid.Row>
+                <Grid.Column textAlign="center">
+                  <Step.Group size="huge" stackable="mobile" widths={6}>
+                    <Step>
+                      <Icon name="check" />
+                      <Step.Content>
+                        <Step.Title
+                          style={{ fontSize: "1em", marginBottom: "1em" }}
+                        >
+                          Enable the app
+                        </Step.Title>
+                        <Step.Description
+                          style={{ fontSize: "0.8em", marginBottom: "1em" }}
+                        >
+                          Activate the app when you have to leave your laptop in
+                          a public place (like going to the toilet when working
+                          in a coffee shop).
+                        </Step.Description>
+                      </Step.Content>
+                    </Step>
+                    <Step>
+                      <Icon name="volume up" />
+                      <Step.Content>
+                        <Step.Title
+                          style={{ fontSize: "1em", marginBottom: "1em" }}
+                        >
+                          Alarma Is On
+                        </Step.Title>
+                        <Step.Description
+                          style={{ fontSize: "0.8em", marginBottom: "1em" }}
+                        >
+                          If your laptop gets unplugged or the lid closes your
+                          laptop will set up its volume to 200% and the alarm
+                          will play.
+                        </Step.Description>
+                      </Step.Content>
+                    </Step>
+                    <Step>
+                      <Icon name="coffee" />
+                      <Step.Content>
+                        <Step.Title
+                          style={{ fontSize: "1em", marginBottom: "1em" }}
+                        >
+                          Do what you have to do
+                        </Step.Title>
+                        <Step.Description
+                          style={{ fontSize: "0.8em", marginBottom: "1em" }}
+                        >
+                          Now you can safely go and order that Decaf, Soy Latte
+                          With An Extra Shot And Cream or go and do your
+                          business.
+                        </Step.Description>
+                      </Step.Content>
+                    </Step>
+                  </Step.Group>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Segment>
+
+          <Segment style={{ padding: "0em" }} vertical>
+            <Grid celled="internally" columns="equal" stackable>
+              <Grid.Row textAlign="center">
+                <Grid.Column
+                  style={{ paddingBottom: "5em", paddingTop: "5em" }}
+                >
+                  <Header as="h3" style={{ fontSize: "2em" }}>
+                    "What a Company"
+                  </Header>
+                  <p style={{ fontSize: "1.33em" }}>
+                    That is what they all say about us
+                  </p>
+                </Grid.Column>
+                <Grid.Column
+                  style={{ paddingBottom: "5em", paddingTop: "5em" }}
+                >
+                  <Header as="h3" style={{ fontSize: "2em" }}>
+                    "I shouldn't have gone with their competitor."
+                  </Header>
+                  <p style={{ fontSize: "1.33em" }}>
+                    <Image avatar src="/images/avatar/large/nan.jpg" />
+                    <b>Nan</b> Chief Fun Officer Acme Toys
+                  </p>
+                </Grid.Column>
+                <Grid.Column
+                  style={{ paddingBottom: "5em", paddingTop: "5em" }}
+                >
+                  <Header as="h3" style={{ fontSize: "2em" }}>
+                    "I shouldn't have gone with their competitor."
+                  </Header>
+                  <p style={{ fontSize: "1.33em" }}>
+                    <Image avatar src="/images/avatar/large/nan.jpg" />
+                    <b>Nan</b> Chief Fun Officer Acme Toys
+                  </p>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Segment>
+
+          <Segment
+            inverted
+            vertical
+            style={{ padding: "5em 0em" }}
+            textAlign="center"
+          >
+            <p>
+              Made with love by{" "}
+              <a href="https://javiercarceller.com"> Javier Carceller </a>
+            </p>
+
+            <p>
+              <Icon
+                size="big"
+                name="github"
+                link="https://github.com/elxavicio"
+              />{" "}
+              <Icon
+                size="big"
+                name="linkedin"
+                link="https://www.linkedin.com/in/javiercarceller/"
+              />
+              <Icon
+                size="big"
+                name="twitter"
+                link="https://twitter.com/javiercarceller"
+              />
+            </p>
+          </Segment>
+        </ResponsiveContainer>
+      </div>
+    );
+  }
+}
 
 export default HomepageLayout;
