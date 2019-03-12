@@ -60,7 +60,7 @@ const HomepageHeading = ({ mobile }) => (
 
     <a href="https://gum.co/alarmaapp" target="_blank">
       <Button primary size="huge">
-        Buy now for <strike>9.95</strike> 4.95 USD
+        Buy now for <strike>19.95</strike> 9.95 USD
       </Button>
     </a>
   </Container>
@@ -200,33 +200,37 @@ class HomepageLayout extends React.Component {
                 <Grid.Column
                   style={{ paddingBottom: "5em", paddingTop: "5em" }}
                 >
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    "What a Company"
+                  <Header as="h3" style={{ fontSize: "1.33em" }}>
+                    "The thief won't go unnoticed when she steals the laptop
+                    with this loud alarm!""
                   </Header>
-                  <p style={{ fontSize: "1.33em" }}>
-                    That is what they all say about us
+                  <p style={{ fontSize: "2em" }}>
+                    <Image avatar src="/static/images/arjunkhan.jpeg" />
+                    Arjun Khan
                   </p>
                 </Grid.Column>
                 <Grid.Column
                   style={{ paddingBottom: "5em", paddingTop: "5em" }}
                 >
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    "I shouldn't have gone with their competitor."
+                  <Header as="h3" style={{ fontSize: "1.33em" }}>
+                    "As a minimalist digital nomad, my laptop is one of my most
+                    valuable belongings, can't afford losing it!"
                   </Header>
-                  <p style={{ fontSize: "1.33em" }}>
-                    <Image avatar src="/images/avatar/large/nan.jpg" />
-                    <b>Nan</b> Chief Fun Officer Acme Toys
+                  <p style={{ fontSize: "2em" }}>
+                    <Image avatar src="/static/images/diannejane.jpeg" />
+                    Dianne Jane
                   </p>
                 </Grid.Column>
                 <Grid.Column
                   style={{ paddingBottom: "5em", paddingTop: "5em" }}
                 >
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    "I shouldn't have gone with their competitor."
+                  <Header as="h3" style={{ fontSize: "1.33em" }}>
+                    "I already got a laptop stolen while in the restroom in a
+                    coffee shop, not happening again!"
                   </Header>
-                  <p style={{ fontSize: "1.33em" }}>
-                    <Image avatar src="/images/avatar/large/nan.jpg" />
-                    <b>Nan</b> Chief Fun Officer Acme Toys
+                  <p style={{ fontSize: "2em" }}>
+                    <Image avatar src="/static/images/agusfajardo.jpeg" />
+                    Agus Fajardo
                   </p>
                 </Grid.Column>
               </Grid.Row>
