@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "alarma-landing",
-  "alias": "getalarma.com",
+  "name": "burnout-tales",
   "builds": [{ "src": "package.json", "use": "@now/next" }]
 }

@@ -13,7 +13,7 @@ import {
   Menu,
   Responsive,
   Segment,
-  Sidebar,
+  Input,
   Visibility,
   Step
 } from "semantic-ui-react";
@@ -38,7 +38,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as="h2"
-      content="One laptop is stolen every 53 seconds. Are you the next victim?"
+      content="The mind hacker is a community of founders, creators, freelancers and remote workers that want to be open and improve their mental health"
       inverted
       style={{
         fontSize: mobile ? "1.5em" : "1.7em",
@@ -48,7 +48,7 @@ const HomepageHeading = ({ mobile }) => (
     />
     <Header
       as="h1"
-      content="Protect your laptop from theft now"
+      content="Keep your sanity while reaching your business goals"
       inverted
       style={{
         fontSize: mobile ? "2em" : "4em",
@@ -57,10 +57,17 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? "0.5em" : "1em"
       }}
     />
+    <Input
+      size="huge"
+      placeholder="your@email.com"
+      style={{
+        marginRight: "2em"
+      }}
+    />
 
-    <a href="https://gum.co/alarmaapp" target="_blank">
-      <Button primary size="huge">
-        Buy now for <strike>19.95</strike> 9.95 USD
+    <a href="#" target="_blank">
+      <Button secondary size="massive">
+        Get the newsletter
       </Button>
     </a>
   </Container>
@@ -85,7 +92,7 @@ const ResponsiveContainer = ({ children }) => {
             minHeight: 700,
             padding: "1em 0em",
             backgroundImage: `url(
-              "/static/images/background3.jpeg"
+              "/static/images/lego.jpg"
             )`,
             backgroundSize: "cover",
             backgroundAttachment: "fixed"
@@ -95,13 +102,13 @@ const ResponsiveContainer = ({ children }) => {
           <Menu inverted={true} secondary={true} size="massive">
             <Container>
               <Menu.Item header>
-                <Image
-                  size="mini"
-                  src="/static/icons/siren128.png"
-                  style={{ marginRight: "1.5em" }}
-                />
-                Alarma App
+                <Icon size="big" name="fire" />
+                The Mind Hacker
               </Menu.Item>
+              <Menu.Menu position="right">
+                <Menu.Item as="a">Join the Slack</Menu.Item>
+                <Menu.Item as="a">Get the Newsletter</Menu.Item>
+              </Menu.Menu>
             </Container>
           </Menu>
           <HomepageHeading />
@@ -125,7 +132,7 @@ class HomepageLayout extends React.Component {
     return (
       <div>
         <Head>
-          <title>Alarma App - The antitheft alarm app for your laptop</title>
+          <title>The Mindful Hacker -</title>
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
@@ -138,53 +145,50 @@ class HomepageLayout extends React.Component {
                 <Grid.Column textAlign="center">
                   <Step.Group size="huge" stackable="mobile" widths={6}>
                     <Step>
-                      <Icon name="check" />
+                      <Icon name="graduation" />
                       <Step.Content>
                         <Step.Title
                           style={{ fontSize: "1em", marginBottom: "1em" }}
                         >
-                          Enable the app
+                          Learn
                         </Step.Title>
                         <Step.Description
                           style={{ fontSize: "0.8em", marginBottom: "1em" }}
                         >
-                          Activate the app when you have to leave your laptop in
-                          a public place (like going to the toilet when working
-                          in a coffee shop).
+                          Understand how to identify burnout on yourself or the
+                          people around you and how to tackle it.
                         </Step.Description>
                       </Step.Content>
                     </Step>
                     <Step>
-                      <Icon name="volume up" />
+                      <Icon name="smile outline" />
                       <Step.Content>
                         <Step.Title
                           style={{ fontSize: "1em", marginBottom: "1em" }}
                         >
-                          Alarma Is On
+                          Act
                         </Step.Title>
                         <Step.Description
                           style={{ fontSize: "0.8em", marginBottom: "1em" }}
                         >
-                          If your laptop gets unplugged or the lid closes your
-                          laptop will set up its volume to 200% and the alarm
-                          will play.
+                          Apply actionable insights and advice to see what works
+                          for you and helps you get better.
                         </Step.Description>
                       </Step.Content>
                     </Step>
                     <Step>
-                      <Icon name="coffee" />
+                      <Icon name="share alternate" />
                       <Step.Content>
                         <Step.Title
                           style={{ fontSize: "1em", marginBottom: "1em" }}
                         >
-                          Do what you have to do
+                          Share
                         </Step.Title>
                         <Step.Description
                           style={{ fontSize: "0.8em", marginBottom: "1em" }}
                         >
-                          Now you can safely go and order that Decaf, Soy Latte
-                          With An Extra Shot And Cream or go and do your
-                          business.
+                          Give back by sharing your story and useful resources
+                          with others.
                         </Step.Description>
                       </Step.Content>
                     </Step>
@@ -194,43 +198,34 @@ class HomepageLayout extends React.Component {
             </Grid>
           </Segment>
 
-          <Segment style={{ padding: "0em" }} vertical>
-            <Grid celled="internally" columns="equal" stackable>
-              <Grid.Row textAlign="center">
-                <Grid.Column
-                  style={{ paddingBottom: "5em", paddingTop: "5em" }}
-                >
-                  <Header as="h3" style={{ fontSize: "1.33em" }}>
-                    "The thief won't go unnoticed when she steals the laptop
-                    with this loud alarm!""
-                  </Header>
-                  <p style={{ fontSize: "2em" }}>
-                    <Image avatar src="/static/images/arjunkhan.jpeg" />
-                    Arjun Khan
-                  </p>
+          <Segment style={{ padding: "8em 0em" }} vertical>
+            <Grid container stackable verticalAlign="middle">
+              <Grid.Row>
+                <Grid.Column floated="right" width={6}>
+                  <Image
+                    bordered
+                    rounded
+                    size="medium"
+                    circular={true}
+                    src="/static/images/xavi.jpg"
+                  />
                 </Grid.Column>
-                <Grid.Column
-                  style={{ paddingBottom: "5em", paddingTop: "5em" }}
-                >
-                  <Header as="h3" style={{ fontSize: "1.33em" }}>
-                    "As a minimalist digital nomad, my laptop is one of my most
-                    valuable belongings, can't afford losing it!"
+                <Grid.Column width={8}>
+                  <Header as="h3" style={{ fontSize: "2em" }}>
+                    A note from the author
                   </Header>
-                  <p style={{ fontSize: "2em" }}>
-                    <Image avatar src="/static/images/diannejane.jpeg" />
-                    Dianne Jane
+                  <p style={{ fontSize: "1.33em" }}>
+                    I have been suffering burnout syndrom for the last couple of
+                    years. As an enterpreneur and remote worker for the last 6
+                    years, and although a lot of people might envy the lifestyle
+                    of living in a tropical country and working from home, there
+                    are other problems that don't come to light often enough.
+                    This project is born from the will to share how me and
+                    others deal with burnout so you can learn to deal with your
+                    own in a better way.
                   </p>
-                </Grid.Column>
-                <Grid.Column
-                  style={{ paddingBottom: "5em", paddingTop: "5em" }}
-                >
-                  <Header as="h3" style={{ fontSize: "1.33em" }}>
-                    "I already got a laptop stolen while in the restroom in a
-                    coffee shop, not happening again!"
-                  </Header>
-                  <p style={{ fontSize: "2em" }}>
-                    <Image avatar src="/static/images/agusfajardo.jpeg" />
-                    Agus Fajardo
+                  <p style={{ fontSize: "1.33em" }}>
+                    If you would like to share your story please get in touch.
                   </p>
                 </Grid.Column>
               </Grid.Row>
@@ -255,26 +250,21 @@ class HomepageLayout extends React.Component {
             </p>
 
             <p>
-              <Icon
-                size="big"
-                name="github"
-                link="https://github.com/elxavicio"
-              />{" "}
-              <Icon
-                size="big"
-                name="linkedin"
-                link="https://www.linkedin.com/in/javiercarceller/"
-              />
-              <Icon
-                size="big"
-                name="twitter"
-                link="https://twitter.com/javiercarceller"
-              />
-              <Icon
-                size="big"
-                name="coffee"
-                link="https://buymeacoff.ee/javiercarceller"
-              />
+              <a href="https://github.com/elxavicio" target="_blank">
+                <Icon size="big" name="github" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/javiercarceller/"
+                target="_blank"
+              >
+                <Icon size="big" name="linkedin" />
+              </a>
+              <a href="https://twitter.com/javiercarceller" target="_blank">
+                <Icon size="big" name="twitter" />
+              </a>
+              <a href="https://buymeacoff.ee/javiercarceller" target="_blank">
+                <Icon size="big" name="coffee" />
+              </a>
             </p>
           </Segment>
         </ResponsiveContainer>
